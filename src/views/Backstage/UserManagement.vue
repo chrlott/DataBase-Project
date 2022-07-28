@@ -52,17 +52,22 @@
 import { ref } from 'vue'
 const value1 = ref(true)
 export default {
+  name: "UserInofo",
     data() {
         return {
-            tableData: [{
-        user_id: '20202020',
-        user_name: 'Tom',
-        phone_num: '28098908123',
-        report_num: '3018239',
-        searchinfo_num: '4',
-        fundation_time: '2020-12-2',
-            }]
+          user_info:[]
         }
+    },
+    created(){
+      this.getList();
+    },
+    methods:{
+      getList(){
+        axios({
+          method:'get',
+          url:'http://'
+        })
+      }
     }
 };
 </script>
