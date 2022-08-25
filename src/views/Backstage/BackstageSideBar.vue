@@ -1,17 +1,16 @@
 <!-- @author:杨嘉仪-后台管理界面的模板 -->
-<!-- 差图标和颜色 -->
 <template>
 <!-- 侧边栏 -->
-  <el-aside width="200px" style="background-color: #333744">
+  <el-aside width="200px" style="background-color: #323A52">
     <el-menu
-      background-color="#545c64"
+      background-color="#323A52"
         text-color="#fff"
-        active-text-color="#ffd04b"
+        active-text-color="#2C9EF7"
         router>
 
       <el-sub-menu index="1">
         <template #title>
-          <el-icon><location /></el-icon>
+          <el-icon><User /></el-icon>
           <span>用户管理</span>
         </template>
         <el-menu-item-group>
@@ -22,28 +21,28 @@
 
       <el-sub-menu index="2">
         <template #title>
-            <el-icon><icon-menu /></el-icon>
+            <el-icon><DocumentCopy /></el-icon>
             <span>资讯管理</span>
         </template>
         <el-menu-item-group>
             <el-menu-item index="/backstage/releasedNews">已发布资讯</el-menu-item>
-            <el-menu-item >发布资讯</el-menu-item>
+            <el-menu-item index="/backstage/InformationRelease">发布资讯</el-menu-item>
         </el-menu-item-group>
       </el-sub-menu>
 
       <el-menu-item index="/backstage/volReview">
-        <el-icon><document /></el-icon>
+        <el-icon><Coordinate /></el-icon>
             <span>志愿者审核</span>
       </el-menu-item>
 
       <el-menu-item index="/backstage/reports">
-        <el-icon><setting /></el-icon>
+        <el-icon><MessageBox /></el-icon>
         <span>举报处理</span>
       </el-menu-item>
 
-      <el-menu-item index="5">
+      <el-menu-item index="/backstage/PersonalInfo">
         <el-icon><setting /></el-icon>
-        <span>设置</span>
+        <span>个人信息</span>
       </el-menu-item>
     </el-menu>
   </el-aside>
