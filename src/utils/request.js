@@ -1,5 +1,6 @@
 import axios from "axios"
 import querystring from "querystring"
+
 const errorHandle = (status,info) =>{
     switch(status){
         case 400:
@@ -40,6 +41,7 @@ instance.interceptors.request.use(
             config.data = querystring.stringify(config.data)
         }
         //config:包含着网络请求的所有信息
+
         return config;
     },
     error =>{
@@ -56,6 +58,7 @@ instance.interceptors.response.use(
     error =>{
         //错误的处理
         const {response} = error;
+
         errorHandle(response.status,response.info)
     }
 )

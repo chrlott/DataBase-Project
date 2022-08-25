@@ -34,6 +34,7 @@
  
 <script>
   import BackstageSideBar from '@/views/Backstage/BackstageSideBar'
+  import api from "../api/index"
   export default {
   name: 'BackstageView',
   components: {
@@ -44,6 +45,11 @@
       window.sessionStorage.clear();
       this.$router.push('/login');
     }
+  },
+  mounted(){
+    api.getChengpin().then(res =>{
+      console.log(res.data);
+    })
   }
 }
 </script>
