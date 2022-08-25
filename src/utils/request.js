@@ -1,16 +1,14 @@
 import axios from "axios"
 import querystring from "querystring"
 
-// 参考文档：https://www.kancloud.cn/yunye/axios/234845
-
-const errorHandle = (status,info) => {
+const errorHandle = (status,info) =>{
     switch(status){
         case 400:
             console.log("语义有误");
-            break;
+            break; 
         case 401:
             console.log("服务器认证失败");
-            break;
+            break; 
         case 403:
             console.log("服务器拒绝访问");
             break;
@@ -26,24 +24,24 @@ const errorHandle = (status,info) => {
         default:
             console.log(info);
             break;
+        }    
     }
-}
-
-
+//网络请求对象
 const instance = axios.create({
-    // 网络请求的公共配置
+    //网络请求的公共配置
     timeout:5000
 })
 
-// 拦截器最常用的
+//拦截器最常用的
 
-// 发送数据之前
+//发送数据之前
 instance.interceptors.request.use(
     config =>{
-        if(config.methods === "post"){
+        if(config.method == "post"){
             config.data = querystring.stringify(config.data)
         }
-        // config:包含着网络请求的所有信息
+        //config:包含着网络请求的所有信息
+
         return config;
     },
     error =>{
@@ -51,14 +49,16 @@ instance.interceptors.request.use(
     }
 )
 
-// 获取数据之前
+//获取数据之前
 instance.interceptors.response.use(
     response =>{
+        //网络请求成功
         return response.status === 200 ? Promise.resolve(response) : Promise.reject(response)
     },
     error =>{
-        const { response } = error;
-        // 错误的处理才是我们需要最关注的
+        //错误的处理
+        const {response} = error;
+
         errorHandle(response.status,response.info)
     }
 )

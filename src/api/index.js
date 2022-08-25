@@ -1,11 +1,12 @@
+
 import axios from "../utils/request"
-import path from "./path"
+import path from "../api/path"
 
 const api = {
-    // 诚品详情地址
-    getChengpin(){
-        return axios.get(path.baseUrl + path.chengpin)
+    //1.3 获取用户信息
+    getUserInfo(id){
+        return axios.get(path.baseUrl+path.userInfo,{params:{user_id:id}})
     }
 }
 
-export default api
+export default api;
